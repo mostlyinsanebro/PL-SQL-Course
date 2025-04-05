@@ -1,0 +1,18 @@
+In PL/SQL there are 3 types of blocks:-
+1. Anonymous blocks -> unnamed blocks, can't be saved and called in the database.
+2. Procedures -> named blocks, can be saved and run again and again in the database, can take in some parameters and also give out some parameters. It is not mandatory for procedures
+                 to return some values.
+3. Functions -> named blocks, can be saved and run again and again in the database. They must return some value, that is how they are different from procedures.
+
+Anonymous blocks has the following sections:-
+
+  DECLARE (not mandatory, all the variables that are to be used in our BEGIN section must be declared here, can also be left empty)
+  BEGIN (madatory section)
+  EXCEPTION (used to handle any run-time exceptions)
+  END; (used to end the anonymous block)
+
+Code:-
+DECLARE
+BEGIN
+NULL;
+END;
