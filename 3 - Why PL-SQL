@@ -1,0 +1,9 @@
+PL SQL stands for Procedural SQL.
+
+PL-SQL is not an Object Oriented Language like Java and neither is it a Visual language meaning it can not be used to create visual things but it is strictly a data manipulation languauge
+which works tightly with Oracle SQL for that cause.
+
+If we have Oracle Database installed in our system, we can automatically use Oracle SQL there and thus also us PL-SQL.
+
+PL-SQL is strongly bound with Oracle SQL as they are both run on the database engine only, thus there is very less network loss and thus PL-SQL has very high performance. 
+That is why we should use it.
