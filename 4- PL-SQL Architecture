@@ -1,0 +1,14 @@
+We can see the PL/SQL Architecture as 2 architectures:-
+
+1. Physical Architecture:- In this architecture, upon executing a PL/SQL Code, the PL/SQL engine checks if there is any SQL Code written in it, it sends that DML code to the SQL engine
+and that code is executed in the SQL engine in the SQL Statement Executor, the result is returned to the PL/SQL engine and then the PL/SQL code is executed on the result in the PL/SQL 
+execution block and the result is retured to the client. The switching of engines is known as Context Switch.
+
+2. Logical Architecture:- 
+  i). PL/SQL cooperates with SQL Engine.
+  ii). Enables Subprograms i.e. enables code reusability.
+  iii). PL/SQL enables us to create and execute Dynamic Queries.
+  iv). PL-SQL is case insensitive.
+  v). PL-SQL has it's own optimiser.
+  vi). Enables Object-Oriented Programming.
+  vii). We can also use PL/SQL toolkits to create Web applications.
