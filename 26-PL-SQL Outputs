@@ -1,0 +1,24 @@
+PL/SQL is not an output languauge by default. If we want to output something o the screen, we need to use put_line() procedure of the DBMS_OUTPUT in-built package.
+
+This much is also not enough for seeing the outputs, we also need to do 'SET SERVEROUTPUT ON;' for setting the output of the server on so that we can see what we are trying to print using
+the dbms_output.put_line() procedure.
+
+Code:-
+SET SERVEROUTPUT ON;
+BEGIN
+dbms_output.put_line('Hello World');
+END;
+
+
+Nested Blocks:- Blocks within blocks
+
+Code:-
+SET SERVEROUTPUT ON;
+BEGIN
+dbms_output.put_line('Hello World');
+
+    -- Nested Block
+    BEGIN
+        dbms_output.put_line('PL/SQL');
+    END;
+END;
