@@ -7,3 +7,5 @@ If we have Oracle Database installed in our system, we can automatically use Ora
 
 PL-SQL is strongly bound with Oracle SQL as they are both run on the database engine only, thus there is very less network loss and thus PL-SQL has very high performance. 
 That is why we should use it.
+
+It also provides a lot of Built-in functions for writing data to files, file manipulation etc. which is very helpful.
