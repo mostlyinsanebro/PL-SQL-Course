@@ -1,0 +1,22 @@
+Vraibales are basically used to store some value in them, manipulate it if needed and then use it to print or show that value. They can also be passed as parameters to subprograms.
+
+Variables in PL/SQL have 4 data types:-
+1. SCALAR
+2. REFERENCE (like pointers)
+3. LARGE OBJECTS (LOB)
+4. COMPOSITE
+
+SCALAR Data Types:-
+1. CHAR(max_len) -> by default the size if 1 byte and if you specify someting, the size is that then.
+2. VARCHAR2(max_length) -> it is variable length, if you say VARCHAR2(30) :- then at max the length of variables can be 30 but if it is of 10 length, then 10 bytes will be allocated only.
+3. NUMBER [precision, scale] -> NUMBER[3,2] means the number will have 3 digits in total with 2 as decimal digits.
+4. BINARY_INTEGER  = PSLINTEGER -> are faster and requires less storage than numbers
+5. BINARY_FLOAT  -> ends with f
+6. BINARY_DOUBLE -> ends with d
+7. BOOLEAN -> TRUE, FASLE and by default is null.
+8. DATE -> yyyy-mm-dd hh:mm:ss
+9. TIMESTAMP (precise date)
+10. TIMESTAMP(p) WITH TIMEZONE
+11. TIMESTAMP(p) WITH LOCAL TIME ZONE -> our loacal time zone
+12. INTERVAL(p) YEAR TO MONTH
+13. INTERVAL(p) DAY to SECON(p)
