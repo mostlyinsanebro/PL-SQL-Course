@@ -1,0 +1,135 @@
+Code :-
+SET SERVEROUTPUT ON
+DECLARE
+    v_number  PLS_INTEGER NOT NULL := 50;
+BEGIN
+    dbms_output.put_line(v_number);
+END;
+
+PLS_INTEGER is faster than NUMBER but it can only be used for whole numbers only.
+
+
+BINARY_FLOAT AND BINARY_DOUBLE :- We do not need to put precision and scale for these, just write f at the end of the value for float and for d, write d at the value's end. 
+They are not as precise as numbers, use them during scientific calculations but these are faster than Numbers.
+
+Code:-
+SET SERVEROUTPUT ON
+DECLARE
+    v_number  BINARY_FLOAT NOT NULL := 50.23f;
+    v_number2 BINARY_DOUBLE NOT NULL:= 20.55d;
+BEGIN
+    dbms_output.put_line(v_number||' '||v_number2);
+END;
+
+
+DATE DATA TYPES:-
+
+DATE :-
+SET SERVEROUTPUT ON
+DECLARE
+    v_date DATE NOT NULL := '22-11-24 23:11:02';
+BEGIN
+    dbms_output.put_line(v_date);
+END;
+
+
+Change the format from Tools -> Preferences -> Database -> NLS
+
+
+TIMESTAMP :-
+
+SET SERVEROUTPUT ON
+DECLARE
+    v_date TIMESTAMP NOT NULL := SYSTIMESTAMP;
+BEGIN
+    dbms_output.put_line(v_date);
+END;
+
+
+
+SET SERVEROUTPUT ON
+DECLARE
+    v_date TIMESTAMP(3) with time zone NOT NULL := SYSTIMESTAMP;
+BEGIN
+    dbms_output.put_line(v_date);
+END;
+
+
+SET SERVEROUTPUT ON
+DECLARE
+    v_date TIMESTAMP(3) with LOCAL time zone NOT NULL := SYSTIMESTAMP;
+BEGIN
+    dbms_output.put_line(v_date);
+END;
+
+O/P :- Shows the local exact time.
+
+
+INTERVAL DAY TO SECOND :- 
+SET SERVEROUTPUT ON
+DECLARE
+    v_date INTERVAL DAY(4) TO SECOND NOT NULL := '24  02:11:23';
+BEGIN
+    dbms_output.put_line(v_date);
+END;
+
+
+O/P:- +0024 02:11:23.100000
+
+
+INTERVAL YEAR TO MONTH :-
+SET SERVEROUTPUT ON
+DECLARE
+    v_date INTERVAL YEAR(4) TO MONTH := '1222-3';
+BEGIN
+    dbms_output.put_line(v_date);
+END;
+
+O/P:-
++1222-03
+
+
+
+BOOLEAN :-
+SET SERVEROUTPUT ON
+DECLARE
+    V_BOOL boolean := 'true';
+BEGIN
+    dbms_output.put_line(V_BOOL);
+END;
+
+NOTE:- This will give us an error because we can not print boolean variables, we can only use them in if statements, it is null by default.
+Error:- wrong number or types of arguments in call to 'PUT_LINE'
+
+
+Code:- Boolean in if
+
+SET SERVEROUTPUT ON
+DECLARE
+    V_BOOL boolean := true;
+BEGIN
+    IF v_bool THEN
+        dbms_output.put_line('TRUE');
+    END IF;
+END;
+
+O/P:- True
+
+
+Code:-
+SET SERVEROUTPUT ON
+DECLARE
+    V_BOOL boolean;
+BEGIN
+    IF v_bool THEN
+        dbms_output.put_line('TRUE');
+    ELSIF v_bool = false THEN
+        dbms_output.put_line('FALSE');
+    ELSE
+        dbms_output.put_line('NULL');
+    END IF;
+END;
+
+O/P:- NULL
+
+
