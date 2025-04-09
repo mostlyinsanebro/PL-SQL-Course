@@ -1,0 +1,46 @@
+ %type is used to addign the data types of a variables or a column of a table to the variable we declare useing it.
+ USE CASE:- If we have a variable that we have declared and we use in our code and it is fetching data from a column of a table and we have used exactly the same data
+ type for declaring it,then if the referenced column's data type changes and a bigger value comes in it, it will cause issues.
+
+ Use %type for declaring the variables, then as soon as the column's data type is changed, when our code runs, it will not cause any issues, as the %type will fetch the newly
+ changed data type from the table colum
+
+
+
+Code:- 
+SET SERVEROUTPUT ON
+DECLARE
+
+    v_seg  mtl_system_items_b.segment1%type;
+    v_seg1 v_seg%TYPE;
+BEGIN
+    v_seg := '123456789';
+    v_seg1 :='987654321';
+    dbms_output.put_line(v_seg);
+    dbms_output.put_line(v_seg1);
+END;
+
+
+O/P :-
+123456789
+987654321
+
+
+NOTE:- %type copies only the datatype and not values
+
+CODE:-
+DECLARE
+
+    v_seg  mtl_system_items_b.segment1%type;
+    v_seg1 v_seg%TYPE;
+BEGIN
+    v_seg := '123456789';
+    v_seg1 :=NULL;
+    dbms_output.put_line(v_seg);
+    dbms_output.put_line(v_seg1||'HELLO');
+END;
+
+O/P :- 
+123456789
+HELLO
+
