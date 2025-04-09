@@ -12,3 +12,15 @@ BEGIN
     v_text := 'PL/SQL'||' COURSE';
     dbms_output.put_line(v_text1||' '||v_text||' BEGINNER TO ADVANCED '||v_number);
 END;
+
+
+FOR CONVERTING BOOL TO INT , use below code:-
+SET SERVEROUTPUT ON
+DECLARE
+    V_BOOL boolean:=true;
+BEGIN
+    
+    dbms_output.put_line(sys.diutil.bool_to_int(v_bool));
+END;
+
+O/P :- 1
