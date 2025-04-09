@@ -1,0 +1,12 @@
+Variable Naming Rules:-
+  -> must start with a letter
+  -> con contain special characters
+  -> can be max 30 characters
+  -> can not have Oracle's reserved words.
+
+Naming Conventions:-
+  -> variable -> v_variable_name -- v_max_salary
+  -> CURSOR -> cur_cursor_name -- cur_employees
+  -> EXCEPTION -> start with e
+  -> PROCEDURES -> start with e
+  -> bind variables -> start with B
