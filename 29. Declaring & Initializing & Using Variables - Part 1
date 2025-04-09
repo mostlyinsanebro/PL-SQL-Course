@@ -1,0 +1,14 @@
+General Usage of Variables:-
+NAME [CONSTANT] datatype [NOT NULL] := [DEFAULT value|expression];
+
+
+Code:-
+SET SERVEROUTPUT ON
+DECLARE
+    v_text1 VARCHAR2(10) NOT NULL DEFAULT 'HELLO';
+    v_text VARCHAR2(50) NOT NULL := 'WELCOME';
+    v_number  NUMBER(10,5) NOT NULL := 50.42;
+BEGIN
+    v_text := 'PL/SQL'||' COURSE';
+    dbms_output.put_line(v_text1||' '||v_text||' BEGINNER TO ADVANCED '||v_number);
+END;
