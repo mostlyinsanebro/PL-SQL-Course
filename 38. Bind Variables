@@ -1,0 +1,106 @@
+They are helpful for increasing performance.
+
+We create them in a host env. It can be used and changed by multiple users.
+
+It's scope is the whole worksheet.
+
+We use it with a :(semicolon) always in a block, in worksheet directly we need not use a : outside of the any block.
+
+Code:- Run the code with F5 (run script button), else the bind variable code will ask you to enter the value for it by showing a prompt.
+
+-- Bind variable has the scope in the whole worksheet. We can create a bind variable and then use it in any code in the worksheet.
+
+set serveroutput on;
+variable var_text varchar2(100);
+
+declare
+    v_text varchar2(100);
+begin
+    :var_text := 'HELLO BIND VARIABLE';
+    v_text := :var_text;
+    dbms_output.put_line(v_text);
+    dbms_output.put_line(:var_text);
+end;
+
+O/P:-
+HELLO BIND VARIABLE
+HELLO BIND VARIABLE
+
+
+PL/SQL procedure successfully completed.
+
+
+-- We can print the bind_variable directly in the worksheet by doing print var_text.
+
+Code:-
+print var_text;
+
+O/P:- 
+VAR_TEXT
+--------------------------------------------------------------------------------
+HELLO BIND VARIABLE
+
+
+-- We can not use a bind variable in another worksheet.
+
+-- We can also use autoprint to print the value of the bind variables everytime they are used in the block w/o writing a print statement.
+
+Code:-
+set serveroutput on;
+set autoprint on;
+variable var_text varchar2(100);
+variable var_num NUMBER;
+
+declare
+    v_text varchar2(100);
+begin
+    :var_text := 'HELLO BIND VARIABLE';
+    :var_num :=200;
+    v_text := :var_text;
+    --dbms_output.put_line(v_text);
+    -- dbms_output.put_line(:var_text);
+end;
+
+
+O/P:-
+PL/SQL procedure successfully completed.
+
+VAR_TEXT
+-------------------
+HELLO BIND VARIABLE
+VAR_NUM
+---
+200
+VAR_TEXT
+-------------------
+HELLO BIND VARIABLE
+
+
+-- We can not use precision with NUMBER type bind variables, also we can not create bind variables for all types of data types like DATE etc.
+-- Also, we can only assign values to bind variables in the BEGIN END block only.
+
+
+-- Using bind variables in SQL queries
+Code:-
+variable v_sql NUMBER;
+variable v_org NUMBER;
+
+BEGIN
+    :v_sql := 100;
+    :v_org := 45;
+END;
+
+select segment1 from mtl_system_items_b where organization_id = :v_org and inventory_item_id = :v_sql;
+
+
+O/P:-
+SEGMENT1                                
+----------------------------------------
+8772803353
+
+V_ORG
+--
+45
+V_SQL
+---
+100
