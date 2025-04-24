@@ -1,0 +1,90 @@
+-- Syntax
+CASE exp||condn
+    WHEN CONDITION1 THEN res1
+    WHEN CONDITION2 THEN res2
+    ELSE resn
+END;
+
+-- Code -- Can compare only one value
+SET SERVEROUTPUT ON;
+DECLARE
+    v_job_code VARCHAR2(10):= 'SA_MAN';
+    v_sal_increase NUMBER;
+BEGIN
+    v_sal_increase := CASE v_job_code
+        WHEN 'SA_MAN' THEN 0.3
+        WHEN 'SA_MAN' THEN 0.2
+        ELSE 0
+        END;
+    
+    dbms_output.put_line('Your salary increase is : '||v_sal_increase);
+END;
+
+
+O/P:-
+Your salary increase is : .3
+PL/SQL procedure successfully completed.
+
+
+-- Another syntax of Case expressions. ( search condition)  -- Can compare more than one value and have multiple expressions
+-- Note :- In case expressions, one condition returns one result which is assigned to a var. or used to print something
+-- but in case statements we can write whole statements for each when expressions.
+-- Also the syntax is a bit different
+
+-- CASE Expressions
+var1:= CASE
+  WHEN cond1 THEN x
+  WHEN cond2 THEN y
+  ELSE z
+  END;
+
+
+-- Case statements
+CASE 
+  WHEN exp1 THEN do task1
+  WHEN exp2 THEN do task2
+  ELSE 
+    do task3
+  END CASE;
+
+-- Case expression Code
+DECLARE
+    v_job_id VARCHAR2(10) := 'IT_PROG';
+    v_sal_increase NUMBER;
+BEGIN
+    v_sal_increase := 
+        CASE 
+         WHEN v_job_id = 'SA_MAN' then 0.2
+         WHEN v_job_id = 'SA_REP' then 0.3
+        ELSE 0
+        END;
+    dbms_output.put_line('Your salary increase is : '||v_sal_increase);
+END;
+
+
+-- Case statement Code
+DECLARE
+    v_job_id VARCHAR2(10) := 'SA_REP';
+    v_sal_increase NUMBER;
+BEGIN
+
+        CASE 
+         WHEN v_job_id = 'SA_MAN' then 
+            v_sal_increase := '0.2';
+            dbms_output.put_line('The salary increase is : '||v_sal_increase);
+         WHEN v_job_id in ('SA_REP','IT_PROG') then 
+            v_sal_increase := '0.3';
+            dbms_output.put_line('The salary increase is : '||v_sal_increase);
+        ELSE 
+            v_sal_increase := '0';
+            dbms_output.put_line('The salary increase is : '||v_sal_increase);
+        END CASE;
+END;
+
+
+O/P:-
+The salary increase is : .3
+PL/SQL procedure successfully completed.
+
+
+
