@@ -1,0 +1,32 @@
+-- If statement syntax
+IF condn THEN   -- condn is a bllean value or an expression that results into a boolean
+    y
+ELSIF z THEN  -- elsif is optional
+    aa
+ELSE
+    qq
+END;
+
+-- Code
+SET SERVEROUTPUT ON;
+DECLARE
+    v_number NUMBER := 5;
+    v_name VARCHAR2(30):= 'carol';
+BEGIN
+    IF v_number < 10 or v_name = 'Adam' THEN
+        dbms_output.put_line('Number is smaller than 10');
+    ELSIF v_number < 20 THEN
+        dbms_output.put_line('Number is smaller than 20');
+    ELSIF v_number < 30 THEN
+        dbms_output.put_line('Number is smaller than 30');  
+    ELSE 
+        IF v_number IS NULL THEN
+            dbms_output.put_line('Number is null..'); 
+        ELSE
+        dbms_output.put_line('Number is smaller than or equal to 30');  
+        END IF;
+    END IF;
+END;
+
+Notes:- A number if not initialised, is null by default. 
+for checking if a number is null, write if v_number is null and not if v_number = NUll, it won't work.
