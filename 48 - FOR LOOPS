@@ -54,3 +54,10 @@ O/P:-
 
 
 PL/SQL procedure successfully completed.
+
+
+Note:-
+-- Use basic loops when you need that the loop get executed atleast once.
+-- Use for loops when you know the start and end point of the loop and you also want that the loop does not go into an infinite loop.
+-- Use while loops when the condition returns true or false.
+
